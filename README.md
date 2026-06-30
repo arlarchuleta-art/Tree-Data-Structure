@@ -19,3 +19,7 @@ To complete this program successfully, the implementation will deploy across 3 c
 ## Milestone 2 Update: Core Data Object Deployed
 * **Component Added:** `Person.java`
 * **Details:** Successfully integrated the core employee data model. Implemented Java's `Comparable` interface to allow the tree to sort individual records alphabetically by name on contact.
+
+## Milestone 3 Update: Tree Logic Structure Deployed
+* **Component Added:** `SortedTreeSet.java`
+* **Details:** Completed the self-sorting Binary Search Tree logic. The structural paths now recursively guide smaller string elements to the left subtrees and larger string elements to the right subtrees while seamlessly dropping duplicate entries on impact.
