@@ -28,3 +28,23 @@ To complete this program successfully, the implementation will deploy across 3 c
 * **Component Added:** `Main.java`
 * **Validation Status:** TESTING PHASE INITIALIZED
 * **Details:** The driver engine is fully staged. Entering active compilation and verification testing via local Command Prompt.
+
+## Milestone 5 Update: Driver Integration & Final Verification
+* **Components Added:** `Test.PNG`
+* **Components Updated:** `Main.java`, `Person.java`, `SortedTreeSet.java`
+* **Validation Status:** SUCCESS
+* **Verification Log:** Terminal compilation passed cleanly. The implementation successfully filters out duplicate rows from the `hr.txt` dataset and outputs the unique employee profiles in precise alphabetical order.
+
+### Test Execution Output
+```text
+=========================================
+   NINTENDO HR SORTED BINARY TREE SET
+=========================================
+Name            H(cm)   W(kg)
+-----------------------------------------
+Bowser          310     726
+Luigi           158     83
+Mario           155     90
+Peach           183     60
+Toad            41      7
+=========================================
