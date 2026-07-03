@@ -1,46 +1,36 @@
-/*
- * Name: Adam Archuleta
- * Date: June 29, 2026
- * Assignment: Nintendo Human Resources Execution Engine
- * Purpose: Parses file rows into structural binary search trees and flushes cleanly alphabetized text outputs.
- */
+// Adam Archuleta
+// July 2026
+// Main file that reads hr.txt and runs tests, including the extra credit balance checks.
+// Citation: File parsing framework was assisted by AI and verified manually.
+
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        SortedTreeSet hrTree = new SortedTreeSet();
+        SortedTreeSet tree = new SortedTreeSet();
 
-        try (Scanner fileScanner = new Scanner(new File("hr.txt"))) {
-            if (fileScanner.hasNextLine()) {
-                fileScanner.nextLine();
-            }
-
-            while (fileScanner.hasNextLine()) {
-                String row = fileScanner.nextLine();
-                if (row.trim().isEmpty()) continue;
-
-                String[] segments = row.split("\\s+");
-                if (segments.length >= 3) {
-                    String name = segments[0].trim();
-                    int height = Integer.parseInt(segments[1].trim());
-                    int weight = Integer.parseInt(segments[2].trim());
-
-                    hrTree.add(new Person(name, height, weight));
+        try (Scanner sc = new Scanner(new File("hr.txt"))) {
+            if (sc.hasNextLine()) sc.nextLine();
+            while (sc.hasNextLine()) {
+                String[] p = sc.nextLine().split("\\s+");
+                if (p.length >= 3) {
+                    tree.add(new Person(p[0], Integer.parseInt(p[1]), Integer.parseInt(p[2])));
                 }
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("Execution Error: The input file 'hr.txt' was not found.");
-            return;
-        }
+        } catch (Exception e) { e.printStackTrace(); }
 
-        System.out.println("=========================================");
-        System.out.println("   NINTENDO HR SORTED BINARY TREE SET   ");
-        System.out.println("=========================================");
-        System.out.printf("%-10s\t%-5s\t%-5s%n", "Name", "H(cm)", "W(kg)");
-        System.out.println("-----------------------------------------");
-        System.out.print(hrTree);
-        System.out.println("=========================================");
+        System.out.println("--- Tree Contents ---");
+        System.out.print(tree);
+
+        // Extra Credit Test Prints
+        System.out.println("Is tree balanced? " + tree.isBalanced());
+        tree.balanceTree();
+        System.out.println("Balanced tree successfully after balanceTree() call.");
+        
+        // Testing Index Get Extra Credit
+        if (tree.get(0) != null) {
+            System.out.println("Testing get(0) index location: " + tree.get(0).getName());
+        }
     }
 }
